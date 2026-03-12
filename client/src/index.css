@@ -1,0 +1,260 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   5.000 MILLAS EDITORIAL — Ultra Lujo Intelectual
+   Paleta: Navy #0a1628 | Dorado #c8a04a | Crema #f5f0e6
+   Tipografías: Playfair Display | DM Sans | Cormorant Garamond
+   Referentes: Rolls-Royce, Penguin Classics, mapas siglo XVIII
+   ============================================================ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand Colors */
+  --color-navy: #0a1628;
+  --color-navy-light: #0f1f38;
+  --color-navy-dark: #060e1a;
+  --color-gold: #c8a04a;
+  --color-gold-light: #d4b76a;
+  --color-gold-dark: #a07b3f;
+  --color-cream: #f5f0e6;
+  --color-cream-dark: #e8e0d0;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-quote: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+}
+
+:root {
+  --radius: 0.35rem;
+  --background: #0a1628;
+  --foreground: #f5f0e6;
+  --card: #0f1f38;
+  --card-foreground: #f5f0e6;
+  --popover: #0f1f38;
+  --popover-foreground: #f5f0e6;
+  --primary: #c8a04a;
+  --primary-foreground: #0a1628;
+  --secondary: #0f1f38;
+  --secondary-foreground: #f5f0e6;
+  --muted: #0f1f38;
+  --muted-foreground: rgba(245, 240, 230, 0.5);
+  --accent: #0f1f38;
+  --accent-foreground: #f5f0e6;
+  --destructive: #b91c1c;
+  --destructive-foreground: #f5f0e6;
+  --border: rgba(200, 160, 74, 0.12);
+  --input: rgba(200, 160, 74, 0.15);
+  --ring: #c8a04a;
+  --chart-1: #c8a04a;
+  --chart-2: #d4b76a;
+  --chart-3: #a07b3f;
+  --chart-4: #0f1f38;
+  --chart-5: #f5f0e6;
+  --sidebar: #060e1a;
+  --sidebar-foreground: #f5f0e6;
+  --sidebar-accent: #0f1f38;
+  --sidebar-accent-foreground: #f5f0e6;
+  --sidebar-border: rgba(200, 160, 74, 0.1);
+  --sidebar-ring: #c8a04a;
+  --sidebar-primary: #c8a04a;
+  --sidebar-primary-foreground: #0a1628;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(200, 160, 74, 0.3);
+    color: #f5f0e6;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1200px;
+    }
+  }
+
+  /* Typography utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-quote {
+    font-family: var(--font-quote);
+  }
+
+  /* Gold gradient text */
+  .gold-gradient {
+    background: linear-gradient(135deg, #a07b3f, #c8a04a, #d4b76a, #c8a04a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold line separator */
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c8a04a, transparent);
+  }
+
+  /* Gold line from left */
+  .gold-line-left {
+    height: 1px;
+    background: linear-gradient(90deg, #c8a04a, transparent);
+  }
+
+  /* Subtle grain texture overlay */
+  .grain-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Nautical grid lines background */
+  .nautical-grid {
+    background-image:
+      linear-gradient(rgba(200, 160, 74, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 160, 74, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* CTA button primary (gold solid) */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: #c8a04a;
+    color: #0a1628;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid #c8a04a;
+  }
+  .btn-gold:hover {
+    background: #d4b76a;
+    border-color: #d4b76a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200, 160, 74, 0.2);
+  }
+
+  /* CTA button secondary (ghost/border) */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: #f5f0e6;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(245, 240, 230, 0.25);
+  }
+  .btn-ghost:hover {
+    border-color: #c8a04a;
+    color: #c8a04a;
+    transform: translateY(-2px);
+  }
+}
