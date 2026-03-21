@@ -25,6 +25,8 @@ interface Book {
   trilogy: boolean;
   trilogySymbol?: string;
   amazonUrl?: string;
+  author?: string;
+  comingSoon?: boolean;
 }
 
 const carlosBooks: Book[] = [
@@ -33,7 +35,7 @@ const carlosBooks: Book[] = [
     subtitle: "Conócete a Ti Mismo",
     category: "Trilogía Fundacional",
     description: "El viaje de autoconocimiento que inicia la transformación. Descubre quién eres realmente, más allá de las máscaras que el mundo te impuso.",
-    image: BOOK_5000,
+    image: "/covers/06-5000-millas-club-mentes-conscientes.jpg",
     trilogy: true,
     trilogySymbol: "El Barco",
   },
@@ -42,7 +44,7 @@ const carlosBooks: Book[] = [
     subtitle: "Salud Heptadimensional",
     category: "Trilogía Fundacional",
     description: "Las 7 dimensiones de la salud integral: física, mental, emocional, espiritual, expresiva, interpersonal y financiera. Cultiva cada faceta de tu diamante interior.",
-    image: BOOK_DIAMANTE,
+    image: "/covers/09-el-metodo-del-diamante.jpg",
     trilogy: true,
     trilogySymbol: "El Diamante",
   },
@@ -51,7 +53,7 @@ const carlosBooks: Book[] = [
     subtitle: "Despierta Tu Fuerza Interior",
     category: "Trilogía Fundacional",
     description: "Transformación en 21 días. Despierta al león que llevas dentro y toma el control de tu vida con acción decidida y propósito inquebrantable.",
-    image: BOOK_LEON,
+    image: "/covers/07-el-metodo-simba.jpg",
     trilogy: true,
     trilogySymbol: "El León",
   },
@@ -60,7 +62,7 @@ const carlosBooks: Book[] = [
     subtitle: "El despertar de la conciencia",
     category: "Transformación",
     description: "Un llamado urgente a despertar. No basta con estar vivo, hay que vivir despierto. Un libro que sacude y transforma desde la primera página.",
-    image: null,
+    image: "/covers/02-despierta-o-moriras-dos-veces.jpg",
     trilogy: false,
   },
   {
@@ -68,7 +70,7 @@ const carlosBooks: Book[] = [
     subtitle: "La batalla interior",
     category: "Transformación",
     description: "El ego no es tu enemigo, es tu herramienta más poderosa cuando aprendes a ordenarlo. Descubre cómo convertir tu mayor obstáculo en tu mayor aliado.",
-    image: null,
+    image: "/covers/08-ordenando-el-ego.jpg",
     trilogy: false,
   },
   {
@@ -84,7 +86,7 @@ const carlosBooks: Book[] = [
     subtitle: "Tu identidad profunda",
     category: "Identidad",
     description: "Explora los arquetipos que habitan en ti y descubre cuál es la fuerza primordial que guía tu camino. Tu identidad más profunda, revelada.",
-    image: null,
+    image: "/covers/03-arquetipo-in.jpg",
     trilogy: false,
   },
   {
@@ -92,7 +94,7 @@ const carlosBooks: Book[] = [
     subtitle: "800 sonetos + arte IA",
     category: "Identidad",
     description: "Una obra monumental: 800 sonetos que diseccionan el alma humana, acompañados de arte generado por inteligencia artificial. Poesía y tecnología al servicio del espíritu.",
-    image: null,
+    image: "/covers/05-anatomia-del-alma.jpg",
     trilogy: false,
   },
   {
@@ -100,7 +102,7 @@ const carlosBooks: Book[] = [
     subtitle: "Semillas de grandeza",
     category: "Sabiduría",
     description: "La sabiduría no tiene edad. 21 lecciones fundamentales para sembrar en los más pequeños las semillas de una vida extraordinaria.",
-    image: null,
+    image: "/covers/04-21-lecciones-sabiduria-ninos.jpg",
     trilogy: false,
   },
   {
@@ -108,12 +110,70 @@ const carlosBooks: Book[] = [
     subtitle: "El método Cervantes",
     category: "Mentalidad",
     description: "Domina el arte de escribir con propósito. Un método práctico para convertir tus ideas en textos que impactan, persuaden y transforman.",
-    image: null,
+    image: "/covers/01-cervantes-ha-llegado-tu-momento.jpg",
     trilogy: false,
   },
 ];
 
-function BookCard({ book, index }: { book: Book; index: number }) {
+const publishedAuthors: Book[] = [
+  {
+    title: "Lo Jamás Contado",
+    subtitle: "Una historia de valentía",
+    category: "Testimonio",
+    description: "Una historia poderosa que rompe el silencio. Irma comparte lo que nunca se atrevió a contar, con la fuerza de quien decide que su verdad merece ser escuchada.",
+    image: null,
+    trilogy: false,
+    author: "Irma Blackman Lizardi",
+  },
+  {
+    title: "El Arte de Comenzar de Nuevo",
+    subtitle: "Reinventarse con propósito",
+    category: "Transformación",
+    description: "Comenzar de nuevo no es rendirse, es la decisión más valiente que puedes tomar. Una guía para reinventarte con propósito y convertir cada final en un nuevo comienzo.",
+    image: null,
+    trilogy: false,
+    author: "Irma Blackman Lizardi",
+  },
+  {
+    title: "TODO O NADA",
+    subtitle: "Sin medias tintas",
+    category: "Mentalidad",
+    description: "65.000 palabras de pura determinación. Waldemar comparte su filosofía de vida sin filtros: o vas con todo, o no vayas. Un manifiesto para quienes no se conforman.",
+    image: null,
+    trilogy: false,
+    author: "Waldemar Acuña Deza",
+  },
+  {
+    title: "LeaderSHE",
+    subtitle: "Liderazgo en femenino",
+    category: "Liderazgo",
+    description: "El liderazgo no tiene género, pero la perspectiva femenina lo transforma todo. Maylyn comparte las claves para liderar con autenticidad, empatía y poder.",
+    image: null,
+    trilogy: false,
+    author: "Maylyn López",
+  },
+  {
+    title: "El Arte de Habitar con Calma",
+    subtitle: "Diseño interior consciente",
+    category: "Diseño & Bienestar",
+    description: "Tu hogar es reflejo de tu mundo interior. Rocío revela cómo el diseño de interiores consciente puede transformar no solo tu espacio, sino tu forma de vivir.",
+    image: null,
+    trilogy: false,
+    author: "Rocío Marote",
+  },
+  {
+    title: "Las Mujeres No Lloran, Facturan",
+    subtitle: "Empoderamiento financiero",
+    category: "Empoderamiento",
+    description: "Un grito de guerra para mujeres que deciden tomar el control de su vida financiera. Kiara demuestra que el verdadero poder está en la independencia económica.",
+    image: null,
+    trilogy: false,
+    author: "Kiara Fernández",
+    comingSoon: true,
+  },
+];
+
+function BookCard({ book, index, defaultAuthor = "Carlos Medina" }: { book: Book; index: number; defaultAuthor?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -147,6 +207,16 @@ function BookCard({ book, index }: { book: Book; index: number }) {
         </div>
       )}
 
+      {/* Coming soon badge */}
+      {book.comingSoon && (
+        <div className="absolute -top-3 right-4 z-10">
+          <span className="font-body text-[9px] tracking-[0.2em] uppercase px-3 py-1"
+            style={{ background: 'rgba(245, 240, 230, 0.15)', color: '#f5f0e6' }}>
+            Próximamente
+          </span>
+        </div>
+      )}
+
       {/* Book cover */}
       <div className="relative overflow-hidden aspect-[3/4]" style={{ background: '#0d1a30' }}>
         {book.image ? (
@@ -169,7 +239,7 @@ function BookCard({ book, index }: { book: Book; index: number }) {
             </p>
             <div className="w-12 h-[1px] mt-5" style={{ background: 'rgba(200, 160, 74, 0.3)' }} />
             <p className="font-body text-[9px] tracking-[0.2em] uppercase mt-4" style={{ color: 'rgba(245, 240, 230, 0.15)' }}>
-              Carlos Medina
+              {book.author || defaultAuthor}
             </p>
           </div>
         )}
@@ -184,9 +254,15 @@ function BookCard({ book, index }: { book: Book; index: number }) {
         <h3 className="font-display text-base md:text-lg tracking-[0.02em] mb-1" style={{ color: '#f5f0e6' }}>
           {book.title}
         </h3>
-        <p className="font-quote italic text-xs mb-3" style={{ color: 'rgba(200, 160, 74, 0.5)' }}>
+        <p className="font-quote italic text-xs mb-1" style={{ color: 'rgba(200, 160, 74, 0.5)' }}>
           {book.subtitle}
         </p>
+        {book.author && (
+          <p className="font-body text-[10px] tracking-[0.1em] mb-3" style={{ color: 'rgba(245, 240, 230, 0.35)' }}>
+            por {book.author}
+          </p>
+        )}
+        {!book.author && <div className="mb-2" />}
         <p className="font-body text-xs leading-relaxed font-light flex-1 mb-4" style={{ color: 'rgba(245, 240, 230, 0.35)' }}>
           {book.description}
         </p>
@@ -383,17 +459,16 @@ export default function Libreria() {
             </p>
           </div>
 
-          {/* Placeholder for future published authors */}
-          <div className="max-w-2xl mx-auto text-center py-12 px-8"
-            style={{ border: '1px dashed rgba(200, 160, 74, 0.15)', background: 'rgba(15, 31, 56, 0.3)' }}>
-            <svg className="w-10 h-10 mx-auto mb-4" fill="none" stroke="rgba(200, 160, 74, 0.3)" strokeWidth="1" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            <p className="font-display text-lg mb-2" style={{ color: 'rgba(245, 240, 230, 0.4)' }}>
-              Próximamente
-            </p>
-            <p className="font-body text-xs font-light mb-6" style={{ color: 'rgba(245, 240, 230, 0.25)' }}>
-              Los libros de nuestros autores publicados se mostrarán aquí.
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {publishedAuthors.map((book, i) => (
+              <BookCard key={book.title} book={book} index={i} defaultAuthor="" />
+            ))}
+          </div>
+
+          {/* CTA to publish */}
+          <div className="text-center mt-12">
+            <p className="font-body text-xs font-light mb-5" style={{ color: 'rgba(245, 240, 230, 0.3)' }}>
+              ¿Quieres ver tu libro aquí?
             </p>
             <a
               href={CALENDLY_URL}
