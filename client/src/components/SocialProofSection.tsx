@@ -18,19 +18,19 @@ const stats = [
 
 const testimonials = [
   {
-    quote: "Tenía el conocimiento pero no sabía cómo convertirlo en un libro. Carlos no solo escribió mi historia, la elevó. Hoy mi libro es mi mejor tarjeta de presentación.",
-    name: "Profesional del sector salud",
-    role: "Autora publicada",
+    quote: "Publicamos 2 libros juntos. El proceso fue extraordinario. Carlos entendió mi voz desde el primer momento y la plasmó con una calidad que superó todas mis expectativas.",
+    name: "Irma Blackman Lizardi",
+    role: "Autora de \"Lo Jamás Contado\" y \"El Arte de Comenzar de Nuevo\"",
   },
   {
-    quote: "El proceso fue impecable. En 21 días pasé de tener una idea a tener un libro publicado en Amazon. La calidad superó todas mis expectativas.",
-    name: "Consultor de negocios",
-    role: "Autor publicado",
+    quote: "65.000 palabras convertidas en un libro profesional en tiempo récord. El sistema de Carlos es impecable: estructura, producción y publicación sin improvisación.",
+    name: "Waldemar Acuña Deza",
+    role: "Autor de \"TODO O NADA\"",
   },
   {
-    quote: "Autoridad Pro cambió mi posicionamiento por completo. No solo tengo un libro, tengo un sistema de diferenciación que trabaja por mí cada día.",
-    name: "Mentor de liderazgo",
-    role: "Autor publicado",
+    quote: "Mi libro de diseño de interiores publicado en Amazon exactamente como lo soñé. Carlos capturó la esencia de mi visión y la convirtió en una obra que me representa.",
+    name: "Rocío Marote",
+    role: "Autora de \"El Arte de Habitar con Calma\"",
   },
 ];
 
